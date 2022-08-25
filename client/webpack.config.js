@@ -42,6 +42,13 @@ module.exports = {
     contentBase: path.join(__dirname, 'dev'),
     historyApiFallback: true,
     hot: true,
+    port: 8080,
+    proxy: {
+      '*': {
+        changeOrigin: true,
+        target: 'https://jira.ivorreic.com/',
+      },
+    },
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
